@@ -1,0 +1,22 @@
+<div class="stars">
+  @for (star of stars; let i = $index; track i) {
+  <button
+    (click)="rate(star)"
+    [class.filled]="star <= control().value"
+    type="button"
+    [disabled]="control().disabled"
+    [class.disabled]="control().disabled"
+  >
+    {{ star <= control().value ? "★" : "☆" }}
+  </button>
+  }
+  <button
+    [style.fontSize]="'1rem'"
+    (click)="resetRating()"
+    type="button"
+    [disabled]="control().disabled"
+    [class.disabled]="control().disabled"
+  >
+    Reset
+  </button>
+</div>
