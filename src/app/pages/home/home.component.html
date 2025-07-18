@@ -2,10 +2,7 @@
   <label>Name</label>
   <input formControlName="name" />
   <label>Rating</label>
-  <app-rating-stars
-    formControlName="rating"
-    (reset)="resetRating()"
-  ></app-rating-stars>
+  <app-rating-stars [control]="form.controls.rating"></app-rating-stars>
   <button type="submit" [disabled]="form.invalid">Submit</button>
 </form>
 

@@ -21,19 +21,21 @@ export class HomeComponent {
       validators: Validators.required,
       nonNullable: true,
     }),
-    rating: new FormControl(-1, {
-      validators: Validators.min(0),
-      nonNullable: true,
-    }),
+    rating: new FormControl(
+      {
+        value: -1,
+        disabled: false,
+      },
+      {
+        validators: Validators.min(0),
+        nonNullable: true,
+      }
+    ),
   });
-
-  protected resetRating() {
-    const control = this.form.controls.rating;
-    control.reset();
-    control.updateValueAndValidity();
-  }
 
   protected submit() {
     console.log('Form submitted', this.form.value);
   }
 }
+
+// Star Rating, toggle or slider component can be used for this.
