@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label>Name</label>
+  <input formControlName="name" />
+  <label>Rating</label>
+  <app-rating-stars
+    formControlName="rating"
+    (reset)="resetRating()"
+  ></app-rating-stars>
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+
+<h3>Form Value Preview:</h3>
+<pre>
+Status: {{ form.status }}
+Touched: {{ form.touched }}
+
+{{ form.value | json }}
+</pre>
